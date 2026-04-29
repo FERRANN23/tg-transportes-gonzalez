@@ -117,9 +117,13 @@
     }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .nav-logo { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
+    .logo-img-wrap {
+      width: 44px; height: 44px; background: #fff; border-radius: 9px;
+      padding: 3px; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+    }
     .logo-img {
-      width: 44px; height: 44px; object-fit: contain; flex-shrink: 0;
-      display: block;
+      width: 38px; height: 38px; object-fit: contain; display: block;
     }
     .logo-copy { display: flex; flex-direction: column; gap: .05rem; }
     .logo-name { font-family: var(--f-head); font-weight: 700; font-size: .9375rem; color: var(--c-white); line-height: 1.1; letter-spacing: -.02em; }
@@ -154,33 +158,39 @@
       position: absolute; inset: 0; z-index: 0;
       pointer-events: none;
     }
-    /* grid */
-    .hero-bg::before {
+    /* Real photo background */
+    .hero-bg-photo {
+      position: absolute; inset: 0;
+      background: url('img/hero-truck.jpg') center center / cover no-repeat;
+    }
+    /* Dark overlay — heavy left for text legibility, lighter right to show truck */
+    .hero-bg-photo::after {
       content: ''; position: absolute; inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(2,11,23,.97) 0%,
+        rgba(2,11,23,.92) 38%,
+        rgba(2,11,23,.72) 62%,
+        rgba(2,11,23,.55) 100%
+      );
+    }
+    /* subtle grid on top of photo */
+    .hero-bg::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
       background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
       background-size: 64px 64px;
     }
-    /* blue glow right */
-    .hero-bg::after {
-      content: ''; position: absolute; top: -30%; right: -15%; width: 70%; height: 130%;
-      background: radial-gradient(ellipse at center, rgba(29,78,216,.13) 0%, transparent 65%);
-    }
-    .hero-orb {
-      position: absolute; bottom: -40%; left: -10%; width: 65%; height: 110%;
-      background: radial-gradient(ellipse at center, rgba(229,32,32,.055) 0%, transparent 65%);
-    }
     .hero-bg-word {
-      position: absolute; right: -.05em; bottom: -.1em;
+      position: absolute; right: -.05em; bottom: -.1em; z-index: 1;
       font-family: var(--f-head); font-size: clamp(10rem,24vw,22rem);
       font-weight: 800; line-height: 1; letter-spacing: -.05em;
-      color: rgba(255,255,255,.02); user-select: none; white-space: nowrap;
+      color: rgba(255,255,255,.025); user-select: none; white-space: nowrap;
     }
-    /* diagonal accent line */
     .hero-line {
-      position: absolute; top: 0; right: 28%; width: 1px; height: 100%;
-      background: linear-gradient(to bottom, transparent, rgba(229,32,32,.15), transparent);
+      position: absolute; top: 0; right: 28%; width: 1px; height: 100%; z-index: 1;
+      background: linear-gradient(to bottom, transparent, rgba(229,32,32,.2), transparent);
     }
 
     .hero-content { position: relative; z-index: 1; padding-top: 3rem; padding-bottom: 2rem; }
@@ -272,8 +282,22 @@
       height: 210px; position: relative; overflow: hidden;
       display: flex; align-items: center; justify-content: center;
     }
-    .srv-banner.chem { background: linear-gradient(135deg, #020B17 0%, #0D2545 60%, #1A3560 100%); }
-    .srv-banner.dry  { background: linear-gradient(135deg, #071A30 0%, #1A3560 60%, #1D4ED8 100%); }
+    .srv-banner.chem {
+      background: url('img/tanker-truck.jpg') center center / cover no-repeat;
+    }
+    .srv-banner.chem::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(2,11,23,.82) 0%, rgba(13,37,69,.75) 100%);
+    }
+    .srv-banner.dry {
+      background: url('img/fleet-highway.jpg') center 40% / cover no-repeat;
+    }
+    .srv-banner.dry::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(7,26,48,.82) 0%, rgba(29,78,216,.55) 100%);
+    }
+    .srv-banner-icon { position: relative; z-index: 1; }
+    .srv-banner-word { z-index: 1; }
     .srv-banner-icon { color: var(--c-red-lt); position: relative; z-index: 1; }
     .srv-banner-word {
       position: absolute; bottom: -.1em; right: -.05em;
@@ -364,8 +388,13 @@
     /* ══════════════════════════════════════════════════════
        COVERAGE
     ══════════════════════════════════════════════════════ */
-    .s-coverage { background: var(--c-bg); overflow: hidden; }
-    .cov-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .s-coverage { background: var(--c-bg); overflow: hidden; position: relative; }
+    .s-coverage::before {
+      content: ''; position: absolute; inset: 0;
+      background: url('img/fleet-aerial.jpg') center center / cover no-repeat;
+      opacity: .08;
+    }
+    .cov-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
     .cov-text .eyebrow { display: block; margin-bottom: 1.25rem; }
     .cov-text .h-lg { color: var(--c-white); margin-bottom: 1.25rem; }
     .cov-text .lead { margin-bottom: 2.5rem; }
@@ -494,10 +523,9 @@
   <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
     <div class="wrap nav-inner">
       <a href="#inicio" class="nav-logo" aria-label="TG Transportes González — inicio">
-        <picture>
-            <source srcset="logo.avif" type="image/avif">
-            <img src="logo.png" class="logo-img" alt="TG Transportes González" width="44" height="44">
-          </picture>
+        <div class="logo-img-wrap">
+            <img src="img/logo.png" class="logo-img" alt="TG Transportes González" width="38" height="38">
+          </div>
         <div class="logo-copy">
           <span class="logo-name">Transportes González</span>
           <span class="logo-sub">Logística Especializada</span>
@@ -542,8 +570,8 @@
   ══════════════════════════════════════════════════════ -->
   <section class="hero" id="inicio" aria-labelledby="hero-heading">
     <div class="hero-bg">
-      <div class="hero-orb"></div>
-      <div class="hero-line"></div>
+      <div class="hero-bg-photo" aria-hidden="true"></div>
+      <div class="hero-line" aria-hidden="true"></div>
       <div class="hero-bg-word" aria-hidden="true">TG</div>
     </div>
 
@@ -1010,10 +1038,9 @@
       <div class="footer-top">
         <div class="ft-brand">
           <div class="nav-logo">
-            <picture>
-            <source srcset="logo.avif" type="image/avif">
-            <img src="logo.png" class="logo-img" alt="TG Transportes González" width="44" height="44">
-          </picture>
+            <div class="logo-img-wrap">
+            <img src="img/logo.png" class="logo-img" alt="TG Transportes González" width="38" height="38">
+          </div>
             <div class="logo-copy">
               <span class="logo-name">Transportes González</span>
               <span class="logo-sub">Logística Especializada</span>
