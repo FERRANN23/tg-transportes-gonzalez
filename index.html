@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TG Transportes González · Logística Especializada en México</title>
+  <meta name="description" content="40 años transportando carga química y general en toda la República Mexicana. Tu operación no puede esperar. Cotización en menos de 2 horas.">
+  <meta property="og:title" content="TG Transportes González — Tu carga llega cuando debe.">
+  <meta property="og:description" content="Especialistas en carga química y caja seca. 40 años sin fallar. Solicita cotización ahora.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── TOKENS ──────────────────────────────────────────── */
+    :root {
+      --c-bg:        #020B17;
+      --c-bg2:       #030F1E;
+      --c-bg3:       #071A30;
+      --c-bg4:       #0D2545;
+      --c-blue:      #1D4ED8;
+      --c-blue-lt:   #3B82F6;
+      --c-amber:     #F59E0B;
+      --c-amber-lt:  #FCD34D;
+      --c-light:     #F8FAFC;
+      --c-white:     #FFFFFF;
+      --c-dark:      #1E293B;
+      --c-mid:       #475569;
+      --c-border-dk: rgba(255,255,255,0.07);
+      --c-border-lt: #E2E8F0;
+      --c-text-dk:   rgba(255,255,255,0.92);
+      --c-text-muted:rgba(255,255,255,0.52);
+
+      --f-head: 'Syne', sans-serif;
+      --f-body: 'Inter', sans-serif;
+
+      --ease: cubic-bezier(0.16,1,0.3,1);
+      --r-sm: 8px; --r-md: 14px; --r-lg: 22px; --r-xl: 32px;
+      --sh-card: 0 4px 24px rgba(0,0,0,.14);
+      --sh-dk:   0 4px 32px rgba(0,0,0,.45);
+
+      --max-w: 1200px;
+      --px: clamp(1.25rem, 5vw, 2.5rem);
+      --section-y: clamp(5rem, 10vw, 8rem);
+    }
+
+    /* ── RESET ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--f-body); font-size: 16px; line-height: 1.6; color: var(--c-dark); background: var(--c-bg); overflow-x: hidden; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    ul { list-style: none; }
+
+    /* ── LAYOUT ──────────────────────────────────────────── */
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 var(--px); }
+    .section-pad { padding-top: var(--section-y); padding-bottom: var(--section-y); }
+
+    /* ── ANIMATION ───────────────────────────────────────── */
+    [data-r] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .75s var(--ease), transform .75s var(--ease);
+    }
+    [data-r="fade"]  { transform: none; }
+    [data-r="left"]  { transform: translateX(-28px); }
+    [data-r="right"] { transform: translateX(28px); }
+    [data-r="scale"] { transform: scale(.95) translateY(16px); }
+    [data-r].vis { opacity: 1; transform: none !important; }
+    [data-d="1"] { transition-delay: .08s; }
+    [data-d="2"] { transition-delay: .16s; }
+    [data-d="3"] { transition-delay: .24s; }
+    [data-d="4"] { transition-delay: .32s; }
+    [data-d="5"] { transition-delay: .42s; }
+    @media (prefers-reduced-motion: reduce) {
+      [data-r] { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ── TYPE SCALE ──────────────────────────────────────── */
+    .h-xl { font-family: var(--f-head); font-size: clamp(3rem,8vw,6rem); font-weight: 800; line-height: 1.0; letter-spacing: -.04em; }
+    .h-lg { font-family: var(--f-head); font-size: clamp(2rem,5vw,3.5rem); font-weight: 700; line-height: 1.1; letter-spacing: -.03em; }
+    .h-md { font-family: var(--f-head); font-size: clamp(1.4rem,3vw,2.1rem); font-weight: 700; line-height: 1.15; letter-spacing: -.025em; }
+    .h-sm { font-family: var(--f-head); font-size: 1.125rem; font-weight: 700; line-height: 1.3; letter-spacing: -.015em; }
+    .eyebrow { font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--c-amber); }
+    .lead { font-size: clamp(.9375rem, 1.8vw, 1.125rem); line-height: 1.72; color: var(--c-text-muted); }
+    .body-sm { font-size: .9375rem; line-height: 1.65; }
+
+    /* ── BUTTONS ─────────────────────────────────────────── */
+    .btn { display: inline-flex; align-items: center; gap: .5rem; padding: .9rem 1.875rem; border-radius: 100px; font-size: .9375rem; font-weight: 600; font-family: var(--f-body); transition: all .25s var(--ease); white-space: nowrap; cursor: pointer; }
+    .btn svg { flex-shrink: 0; }
+    .btn-amber { background: var(--c-amber); color: var(--c-bg); }
+    .btn-amber:hover { background: var(--c-amber-lt); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(245,158,11,.35); }
+    .btn-outline { background: transparent; border: 1.5px solid rgba(255,255,255,.2); color: var(--c-white); }
+    .btn-outline:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.45); transform: translateY(-2px); }
+    .btn-wa { background: #22C55E; color: white; }
+    .btn-wa:hover { background: #16A34A; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(34,197,94,.3); }
+    .btn-lg { padding: 1.125rem 2.375rem; font-size: 1.0625rem; }
+    .btn-dark { background: rgba(255,255,255,.07); border: 1.5px solid var(--c-border-dk); color: var(--c-white); }
+    .btn-dark:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.18); transform: translateY(-2px); }
+
+    /* ══════════════════════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════════════════════ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.125rem 0;
+      transition: background .4s var(--ease), padding .4s var(--ease), border-color .4s;
+    }
+    .nav.scrolled {
+      background: rgba(2,11,23,.88);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      padding: .75rem 0;
+      border-bottom: 1px solid var(--c-border-dk);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav-logo { display: flex; align-items: center; gap: .75rem; flex-shrink: 0; }
+    .logo-badge {
+      width: 38px; height: 38px; background: var(--c-amber); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-head); font-weight: 800; font-size: 1rem;
+      color: var(--c-bg); letter-spacing: -.05em; flex-shrink: 0;
+    }
+    .logo-copy { display: flex; flex-direction: column; gap: .05rem; }
+    .logo-name { font-family: var(--f-head); font-weight: 700; font-size: .9375rem; color: var(--c-white); line-height: 1.1; letter-spacing: -.02em; }
+    .logo-sub { font-size: .65rem; color: var(--c-text-muted); letter-spacing: .07em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: .125rem; }
+    .nav-links a { padding: .5rem .875rem; font-size: .875rem; font-weight: 500; color: rgba(255,255,255,.65); border-radius: 8px; transition: all .15s; }
+    .nav-links a:hover { color: var(--c-white); background: rgba(255,255,255,.07); }
+    .nav-actions { display: flex; align-items: center; gap: .75rem; }
+    .burger { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: 10px; background: rgba(255,255,255,.07); border: 1px solid var(--c-border-dk); color: var(--c-white); }
+
+    /* Mobile overlay nav */
+    .m-nav {
+      display: flex; flex-direction: column;
+      position: fixed; inset: 0; z-index: 99;
+      background: var(--c-bg); padding: 5rem var(--px) 2rem;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .m-nav.open { opacity: 1; pointer-events: all; }
+    .m-nav a { font-family: var(--f-head); font-size: clamp(1.75rem,6vw,2.5rem); font-weight: 700; color: rgba(255,255,255,.7); padding: 1rem 0; border-bottom: 1px solid var(--c-border-dk); display: block; transition: color .2s; }
+    .m-nav a:hover { color: var(--c-amber); }
+    .m-nav-cta { margin-top: 2rem; }
+
+    /* ══════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100dvh; display: flex; flex-direction: column;
+      justify-content: center; position: relative; overflow: hidden;
+      background: var(--c-bg); padding-top: 80px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      pointer-events: none;
+    }
+    /* grid */
+    .hero-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+    /* blue glow right */
+    .hero-bg::after {
+      content: ''; position: absolute; top: -30%; right: -15%; width: 70%; height: 130%;
+      background: radial-gradient(ellipse at center, rgba(29,78,216,.13) 0%, transparent 65%);
+    }
+    .hero-orb {
+      position: absolute; bottom: -40%; left: -10%; width: 65%; height: 110%;
+      background: radial-gradient(ellipse at center, rgba(245,158,11,.055) 0%, transparent 65%);
+    }
+    .hero-bg-word {
+      position: absolute; right: -.05em; bottom: -.1em;
+      font-family: var(--f-head); font-size: clamp(10rem,24vw,22rem);
+      font-weight: 800; line-height: 1; letter-spacing: -.05em;
+      color: rgba(255,255,255,.02); user-select: none; white-space: nowrap;
+    }
+    /* diagonal accent line */
+    .hero-line {
+      position: absolute; top: 0; right: 28%; width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, rgba(245,158,11,.15), transparent);
+    }
+
+    .hero-content { position: relative; z-index: 1; padding-top: 3rem; padding-bottom: 2rem; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: .625rem;
+      padding: .375rem .875rem; margin-bottom: 2rem;
+      background: rgba(245,158,11,.1); border: 1px solid rgba(245,158,11,.22);
+      border-radius: 100px;
+    }
+    .pill-dot { width: 6px; height: 6px; background: var(--c-amber); border-radius: 50%; animation: pdot 2.2s infinite; }
+    @keyframes pdot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.7)} }
+    .pill-text { font-size: .8rem; font-weight: 600; color: var(--c-amber); letter-spacing: .06em; text-transform: uppercase; }
+
+    .hero-h1 { color: var(--c-white); max-width: 14ch; margin-bottom: 1.5rem; }
+    .hero-h1 em { font-style: normal; color: var(--c-amber); }
+
+    .hero-sub { color: rgba(255,255,255,.6); max-width: 52ch; margin-bottom: 2.5rem; font-size: clamp(.9375rem,1.8vw,1.125rem); line-height: 1.7; }
+
+    .hero-btns { display: flex; flex-wrap: wrap; gap: .875rem; margin-bottom: 4.5rem; }
+
+    /* hero stats row */
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid var(--c-border-dk); padding-top: 2rem; }
+    .hstat { flex: 1 1 180px; padding: 1.25rem 2rem 1.25rem 0; border-right: 1px solid var(--c-border-dk); }
+    .hstat:last-child { border-right: none; padding-right: 0; }
+    .hstat-val { font-family: var(--f-head); font-size: clamp(1.75rem,3vw,2.5rem); font-weight: 800; color: var(--c-white); letter-spacing: -.045em; line-height: 1; margin-bottom: .25rem; }
+    .hstat-val .acc { color: var(--c-amber); }
+    .hstat-lbl { font-size: .8rem; color: rgba(255,255,255,.45); font-weight: 500; }
+
+    .hero-scroll {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .5rem;
+      color: rgba(255,255,255,.3); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+      animation: sbounce 2.8s infinite;
+    }
+    @keyframes sbounce { 0%,100%{transform:translateX(-50%) translateY(0);opacity:.35} 50%{transform:translateX(-50%) translateY(7px);opacity:.7} }
+    .scroll-line { width: 1px; height: 36px; background: linear-gradient(to bottom, rgba(255,255,255,.35), transparent); }
+
+    /* ══════════════════════════════════════════════════════
+       PAIN SECTION
+    ══════════════════════════════════════════════════════ */
+    .s-pain { background: var(--c-bg2); position: relative; overflow: hidden; }
+    .s-pain::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background: linear-gradient(90deg, transparent, rgba(245,158,11,.25), transparent); }
+
+    .pain-head { text-align: center; max-width: 640px; margin: 0 auto 4rem; }
+    .pain-head .h-lg { color: var(--c-white); margin-bottom: 1rem; }
+
+    .pain-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-bottom: 4rem; }
+    .pain-card {
+      background: rgba(255,255,255,.03); border: 1px solid var(--c-border-dk);
+      border-radius: var(--r-lg); padding: 2rem;
+      transition: border-color .25s, background .25s, transform .3s var(--ease);
+    }
+    .pain-card:hover { border-color: rgba(245,158,11,.2); background: rgba(245,158,11,.025); transform: translateY(-4px); }
+    .pain-icon {
+      width: 48px; height: 48px; border-radius: 13px;
+      background: rgba(245,158,11,.1); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 1.25rem; color: var(--c-amber);
+    }
+    .pain-problem { font-family: var(--f-head); font-size: 1.0625rem; font-weight: 700; color: rgba(255,255,255,.85); margin-bottom: .75rem; line-height: 1.3; }
+    .pain-answer { font-size: .9375rem; color: rgba(255,255,255,.48); line-height: 1.65; }
+    .pain-answer strong { color: rgba(255,255,255,.78); font-weight: 600; }
+
+    .pain-footer { text-align: center; }
+    .pain-quote {
+      display: inline-block; font-family: var(--f-head); font-size: clamp(1.1rem,2.5vw,1.6rem);
+      font-weight: 700; color: var(--c-white); padding: 1.25rem 2.5rem;
+      background: linear-gradient(135deg, var(--c-bg4), var(--c-bg3));
+      border: 1px solid rgba(29,78,216,.25); border-radius: var(--r-xl);
+    }
+    .pain-quote em { font-style: normal; color: var(--c-amber); }
+
+    /* ══════════════════════════════════════════════════════
+       SERVICES
+    ══════════════════════════════════════════════════════ */
+    .s-services { background: var(--c-light); }
+    .s-head { text-align: center; max-width: 680px; margin: 0 auto 4rem; }
+    .s-head .h-lg { color: var(--c-dark); margin-bottom: 1rem; }
+    .s-head .lead { color: var(--c-mid); }
+
+    .srv-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2rem; }
+    .srv-card {
+      background: var(--c-white); border-radius: var(--r-xl);
+      overflow: hidden; box-shadow: var(--sh-card); border: 1px solid var(--c-border-lt);
+      transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+    }
+    .srv-card:hover { transform: translateY(-8px); box-shadow: 0 24px 56px rgba(0,0,0,.14); }
+
+    .srv-banner {
+      height: 210px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .srv-banner.chem { background: linear-gradient(135deg, #020B17 0%, #0D2545 60%, #1A3560 100%); }
+    .srv-banner.dry  { background: linear-gradient(135deg, #071A30 0%, #1A3560 60%, #1D4ED8 100%); }
+    .srv-banner-icon { color: var(--c-amber-lt); position: relative; z-index: 1; }
+    .srv-banner-word {
+      position: absolute; bottom: -.1em; right: -.05em;
+      font-family: var(--f-head); font-size: 7rem; font-weight: 800;
+      color: rgba(255,255,255,.04); user-select: none; line-height: 1; white-space: nowrap;
+    }
+
+    .srv-body { padding: 2rem 2.25rem 2.25rem; }
+    .srv-tag {
+      display: inline-flex; align-items: center; gap: .375rem; padding: .28rem .75rem;
+      background: #F1F5F9; border-radius: 100px; font-size: .72rem; font-weight: 600;
+      color: var(--c-mid); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .srv-title { font-family: var(--f-head); font-size: 1.5rem; font-weight: 700; color: var(--c-dark); margin-bottom: .75rem; letter-spacing: -.025em; line-height: 1.2; }
+    .srv-desc { font-size: .9375rem; color: var(--c-mid); line-height: 1.65; margin-bottom: 1.5rem; }
+
+    .srv-features { display: flex; flex-direction: column; gap: .5rem; margin-bottom: 1.75rem; }
+    .srv-feat { display: flex; align-items: center; gap: .625rem; font-size: .875rem; color: #334155; font-weight: 500; }
+    .feat-check { width: 18px; height: 18px; background: rgba(22,163,74,.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #16a34a; }
+
+    .srv-industries { padding-top: 1.25rem; border-top: 1px solid var(--c-border-lt); }
+    .ind-lbl { font-size: .72rem; font-weight: 600; color: #94A3B8; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .625rem; }
+    .ind-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .ind-tag { padding: .25rem .625rem; background: #F1F5F9; border-radius: 6px; font-size: .78rem; font-weight: 500; color: var(--c-mid); }
+
+    /* ══════════════════════════════════════════════════════
+       STATS
+    ══════════════════════════════════════════════════════ */
+    .s-stats { background: var(--c-bg); position: relative; overflow: hidden; }
+    .s-stats::before {
+      content:''; position:absolute; inset:0;
+      background-image: linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size: 80px 80px;
+    }
+    .stats-grid { position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
+    .bstat { padding: 3rem 1.5rem; text-align: center; border-right: 1px solid var(--c-border-dk); }
+    .bstat:last-child { border-right: none; }
+    .bstat-num { font-family: var(--f-head); font-size: clamp(2.5rem,5vw,4rem); font-weight: 800; color: var(--c-white); letter-spacing: -.05em; line-height: 1; margin-bottom: .5rem; }
+    .bstat-num .acc { color: var(--c-amber); }
+    .bstat-lbl { font-size: .875rem; color: rgba(255,255,255,.48); font-weight: 500; line-height: 1.4; }
+    .bstat-sub { font-size: .75rem; color: rgba(255,255,255,.25); margin-top: .25rem; }
+
+    /* ══════════════════════════════════════════════════════
+       PROCESS
+    ══════════════════════════════════════════════════════ */
+    .s-process { background: var(--c-light); }
+    .proc-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; position: relative; }
+    .proc-steps::before {
+      content: ''; position: absolute; top: 26px; left: calc(16.66% + 1rem); right: calc(16.66% + 1rem);
+      height: 1px; background: var(--c-border-lt); z-index: 0;
+    }
+    .proc-step { display: flex; flex-direction: column; align-items: flex-start; position: relative; z-index: 1; }
+    .step-num {
+      width: 52px; height: 52px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-head); font-weight: 800; font-size: 1.25rem;
+      letter-spacing: -.03em; margin-bottom: 1.5rem; flex-shrink: 0;
+    }
+    .step-num.n1 { background: var(--c-bg); color: var(--c-white); }
+    .step-num.n2 { background: var(--c-amber); color: var(--c-bg); }
+    .step-num.n3 { background: var(--c-bg); color: var(--c-white); }
+    .step-title { font-family: var(--f-head); font-size: 1.125rem; font-weight: 700; color: var(--c-dark); margin-bottom: .625rem; letter-spacing: -.015em; }
+    .step-desc { font-size: .9375rem; color: var(--c-mid); line-height: 1.65; }
+
+    /* ══════════════════════════════════════════════════════
+       DIFFERENTIATORS
+    ══════════════════════════════════════════════════════ */
+    .s-diff { background: var(--c-bg2); position: relative; overflow: hidden; }
+    .s-diff::after { content:''; position:absolute; top:0; right:0; width:50%; height:100%; background:radial-gradient(ellipse at top right, rgba(29,78,216,.07) 0%, transparent 65%); pointer-events:none; }
+
+    .diff-head { max-width: 620px; margin-bottom: 4rem; }
+    .diff-head .h-lg { color: var(--c-white); margin-bottom: 1rem; }
+
+    .diff-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.5rem; position: relative; z-index: 1; }
+    .diff-card {
+      background: rgba(255,255,255,.03); border: 1px solid var(--c-border-dk);
+      border-radius: var(--r-lg); padding: 2.25rem; position: relative; overflow: hidden;
+      transition: all .28s var(--ease);
+    }
+    .diff-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background: linear-gradient(90deg, var(--c-amber), transparent); opacity:0; transition:opacity .25s; }
+    .diff-card:hover { background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.12); transform:translateY(-4px); }
+    .diff-card:hover::before { opacity:1; }
+    .diff-icon { width:52px; height:52px; border-radius:14px; background:rgba(245,158,11,.1); display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; color:var(--c-amber); }
+    .diff-title { font-family:var(--f-head); font-size:1.1875rem; font-weight:700; color:var(--c-white); margin-bottom:.75rem; letter-spacing:-.015em; line-height:1.25; }
+    .diff-desc { font-size:.9375rem; color:rgba(255,255,255,.5); line-height:1.65; }
+    .diff-desc strong { color:rgba(255,255,255,.78); font-weight:600; }
+
+    /* ══════════════════════════════════════════════════════
+       COVERAGE
+    ══════════════════════════════════════════════════════ */
+    .s-coverage { background: var(--c-bg); overflow: hidden; }
+    .cov-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .cov-text .eyebrow { display: block; margin-bottom: 1.25rem; }
+    .cov-text .h-lg { color: var(--c-white); margin-bottom: 1.25rem; }
+    .cov-text .lead { margin-bottom: 2.5rem; }
+
+    .cov-points { display: flex; flex-direction: column; gap: 1.25rem; }
+    .cov-pt { display: flex; gap: 1rem; align-items: flex-start; }
+    .cov-dot { width: 8px; height: 8px; background: var(--c-amber); border-radius: 50%; margin-top: .4rem; flex-shrink: 0; }
+    .cov-pt-body {}
+    .cov-pt-title { font-size: .8rem; font-weight: 600; color: rgba(255,255,255,.85); text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: .2rem; }
+    .cov-pt-text { font-size: .9rem; color: rgba(255,255,255,.48); line-height: 1.5; }
+
+    .map-box { display: flex; align-items: center; justify-content: center; }
+    .map-svg-wrap { position: relative; }
+    .map-svg-wrap svg { width: 100%; max-width: 500px; filter: drop-shadow(0 0 48px rgba(29,78,216,.2)); }
+    .map-glow { position: absolute; inset: -20%; background: radial-gradient(ellipse at center, rgba(29,78,216,.1) 0%, transparent 65%); pointer-events: none; }
+
+    /* ══════════════════════════════════════════════════════
+       FINAL CTA
+    ══════════════════════════════════════════════════════ */
+    .s-cta { background: var(--c-bg2); position: relative; overflow: hidden; }
+    .s-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(29,78,216,.1) 0%, transparent 65%); pointer-events:none; }
+    .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 720px; margin: 0 auto; }
+    .cta-eyebrow { margin-bottom: 1.5rem; }
+    .cta-title { font-family: var(--f-head); font-size: clamp(2.25rem,6vw,4rem); font-weight: 800; color: var(--c-white); letter-spacing: -.035em; line-height: 1.05; margin-bottom: 1.25rem; }
+    .cta-title em { font-style: normal; color: var(--c-amber); }
+    .cta-sub { font-size: clamp(.9375rem,1.8vw,1.125rem); color: rgba(255,255,255,.55); margin-bottom: 2.5rem; line-height: 1.7; max-width: 56ch; margin-left: auto; margin-right: auto; }
+    .cta-btns { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1.75rem; }
+    .cta-note { font-size: .8125rem; color: rgba(255,255,255,.3); }
+    .cta-note span { color: rgba(255,255,255,.5); }
+
+    /* Decorative lines on CTA */
+    .cta-lines { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .cta-lines span { position: absolute; width: 1px; background: linear-gradient(to bottom, transparent, rgba(255,255,255,.04), transparent); }
+    .cta-lines span:nth-child(1) { left: 15%; height: 100%; top: 0; }
+    .cta-lines span:nth-child(2) { left: 35%; height: 100%; top: 0; }
+    .cta-lines span:nth-child(3) { left: 65%; height: 100%; top: 0; }
+    .cta-lines span:nth-child(4) { left: 85%; height: 100%; top: 0; }
+
+    /* ══════════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════════ */
+    .footer { background: var(--c-bg); border-top: 1px solid var(--c-border-dk); padding: 4rem 0 2rem; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 4rem; padding-bottom: 3rem; border-bottom: 1px solid var(--c-border-dk); margin-bottom: 2rem; }
+    .ft-brand .logo-name { font-size: 1.0625rem; }
+    .ft-tagline { font-size: .875rem; color: rgba(255,255,255,.4); margin-top: .75rem; line-height: 1.65; max-width: 26ch; }
+    .ft-contact { margin-top: 1.5rem; display: flex; flex-direction: column; gap: .5rem; }
+    .ft-ci { display: flex; align-items: center; gap: .5rem; font-size: .875rem; color: rgba(255,255,255,.45); }
+    .ft-ci svg { color: var(--c-amber); flex-shrink: 0; }
+    .ft-ci a:hover { color: var(--c-amber); transition: color .15s; }
+    .ft-social { display: flex; gap: .625rem; margin-top: 1.25rem; }
+    .soc-btn { width: 38px; height: 38px; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid var(--c-border-dk); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.45); transition: all .15s; }
+    .soc-btn:hover { background: rgba(255,255,255,.1); color: var(--c-white); border-color: rgba(255,255,255,.15); }
+    .ft-col-title { font-family: var(--f-head); font-size: .8rem; font-weight: 700; color: var(--c-white); margin-bottom: 1.25rem; letter-spacing: .05em; text-transform: uppercase; }
+    .ft-links { display: flex; flex-direction: column; gap: .625rem; }
+    .ft-links a { font-size: .875rem; color: rgba(255,255,255,.4); transition: color .15s; }
+    .ft-links a:hover { color: rgba(255,255,255,.8); }
+    .footer-btm { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .ftcopy { font-size: .8rem; color: rgba(255,255,255,.28); }
+    .ft-legal { display: flex; gap: 1.5rem; }
+    .ft-legal a { font-size: .8rem; color: rgba(255,255,255,.28); transition: color .15s; }
+    .ft-legal a:hover { color: rgba(255,255,255,.55); }
+
+    /* ── FLOATING WHATSAPP ───────────────────────────────── */
+    .float-wa {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 90;
+      width: 58px; height: 58px; background: #22C55E; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(34,197,94,.45);
+      transition: all .28s var(--ease); color: white;
+    }
+    .float-wa:hover { transform: scale(1.12); box-shadow: 0 10px 36px rgba(34,197,94,.55); }
+    .float-wa-ring { position: absolute; inset: 0; border-radius: 50%; background: #22C55E; animation: wa-ring 2.8s infinite; opacity: 0; }
+    @keyframes wa-ring { 0%{transform:scale(1);opacity:.5} 100%{transform:scale(1.7);opacity:0} }
+
+    /* ── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .stats-grid { grid-template-columns: repeat(2,1fr); }
+      .bstat:nth-child(2) { border-right: none; }
+      .bstat:nth-child(3),
+      .bstat:nth-child(4) { border-top: 1px solid var(--c-border-dk); }
+      .bstat:nth-child(4) { border-right: none; }
+      .cov-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions .btn { display: none; }
+      .burger { display: flex; }
+      .pain-grid { grid-template-columns: 1fr; }
+      .srv-grid { grid-template-columns: 1fr; }
+      .proc-steps { grid-template-columns: 1fr; }
+      .proc-steps::before { display: none; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .hero-btns { flex-direction: column; }
+      .hero-btns .btn { justify-content: center; }
+      .hero-stats { display: grid; grid-template-columns: 1fr 1fr; }
+      .hstat { border-right: none; border-bottom: 1px solid var(--c-border-dk); padding-right: 0; }
+      .hstat:nth-child(odd) { border-right: 1px solid var(--c-border-dk); padding-right: 1rem; }
+      .hstat:last-child,
+      .hstat:nth-last-child(2) { border-bottom: none; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-btm { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .stats-grid { grid-template-columns: 1fr; }
+      .bstat { border-right: none !important; border-top: none; border-bottom: 1px solid var(--c-border-dk); }
+      .bstat:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════
+       FLOATING WHATSAPP
+  ══════════════════════════════════════════════════════ -->
+  <a href="https://wa.me/522411105710?text=Hola%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener" class="float-wa" aria-label="Contactar por WhatsApp">
+    <div class="float-wa-ring"></div>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- ═══════════════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+    <div class="wrap nav-inner">
+      <a href="#inicio" class="nav-logo" aria-label="TG Transportes González — inicio">
+        <div class="logo-badge">TG</div>
+        <div class="logo-copy">
+          <span class="logo-name">Transportes González</span>
+          <span class="logo-sub">Logística Especializada</span>
+        </div>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#proceso">¿Cómo funciona?</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#cobertura">Cobertura</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://wa.me/522411105710?text=Hola%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener" class="btn btn-amber">Solicitar cotización</a>
+        <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="m-nav">
+          <svg id="burger-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="m-nav" id="m-nav" role="dialog" aria-label="Menú móvil" aria-modal="true">
+    <a href="#servicios" class="m-nav-link">Servicios</a>
+    <a href="#proceso" class="m-nav-link">¿Cómo funciona?</a>
+    <a href="#nosotros" class="m-nav-link">Nosotros</a>
+    <a href="#cobertura" class="m-nav-link">Cobertura</a>
+    <a href="#contacto" class="m-nav-link">Contacto</a>
+    <div class="m-nav-cta">
+      <a href="https://wa.me/522411105710?text=Hola%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener" class="btn btn-amber btn-lg">Solicitar cotización →</a>
+    </div>
+  </div>
+
+  <main>
+
+  <!-- ═══════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════ -->
+  <section class="hero" id="inicio" aria-labelledby="hero-heading">
+    <div class="hero-bg">
+      <div class="hero-orb"></div>
+      <div class="hero-line"></div>
+      <div class="hero-bg-word" aria-hidden="true">TG</div>
+    </div>
+
+    <div class="hero-content wrap">
+      <div class="hero-pill" data-r="fade">
+        <span class="pill-dot" aria-hidden="true"></span>
+        <span class="pill-text">Más de 40 años en operación</span>
+      </div>
+
+      <h1 class="h-xl hero-h1" id="hero-heading" data-r data-d="1">
+        Tu carga llega<br>
+        cuando <em>debe.</em>
+      </h1>
+
+      <p class="hero-sub" data-r data-d="2">
+        Transportamos carga química especializada y carga general en toda la República Mexicana. Sin llamadas de seguimiento sin respuesta. Sin sorpresas que paralicen tu operación.
+      </p>
+
+      <div class="hero-btns" data-r data-d="3">
+        <a href="https://wa.me/522411105710?text=Hola%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener" class="btn btn-amber btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Solicitar cotización
+        </a>
+        <a href="#servicios" class="btn btn-outline btn-lg">
+          Ver servicios
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-stats" data-r="fade" data-d="4" role="list" aria-label="Datos clave de la empresa">
+        <div class="hstat" role="listitem">
+          <div class="hstat-val"><span class="stat-counter" data-target="40">0</span><span class="acc">+</span></div>
+          <div class="hstat-lbl">Años de experiencia continua</div>
+        </div>
+        <div class="hstat" role="listitem">
+          <div class="hstat-val"><span class="acc">32</span></div>
+          <div class="hstat-lbl">Estados con cobertura activa</div>
+        </div>
+        <div class="hstat" role="listitem">
+          <div class="hstat-val">&lt;<span class="acc">2h</span></div>
+          <div class="hstat-lbl">Tiempo de respuesta a cotizaciones</div>
+        </div>
+        <div class="hstat" role="listitem">
+          <div class="hstat-val"><span class="acc">100</span>%</div>
+          <div class="hstat-lbl">Comprometidos con cada entrega</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PAIN POINTS
+  ══════════════════════════════════════════════════════ -->
+  <section class="s-pain section-pad" aria-labelledby="pain-heading">
+    <div class="wrap">
+      <div class="pain-head">
+        <p class="eyebrow" data-r="fade">El problema real</p>
+        <h2 class="h-lg" id="pain-heading" data-r data-d="1">Sabemos lo que<br>te quita el sueño</h2>
+        <p class="lead" data-r data-d="2">Tu operación no funciona en condiciones ideales. Funciona bajo presión, con plazos ajustados y proveedores que a veces desaparecen cuando más los necesitas.</p>
+      </div>
+
+      <div class="pain-grid">
+        <article class="pain-card" data-r data-d="1">
+          <div class="pain-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <h3 class="pain-problem">Tu transportista no contesta cuando más lo necesitas</h3>
+          <p class="pain-answer">Líneas ocupadas, mensajes sin respuesta, incertidumbre total. <strong>En TG, siempre hay alguien que contesta. Sin importar el horario.</strong></p>
+        </article>
+
+        <article class="pain-card" data-r data-d="2">
+          <div class="pain-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="pain-problem">Retrasos que comprometen tu línea de producción</h3>
+          <p class="pain-answer">Un día de retraso puede costar miles en paros de planta. <strong>Si hay un imprevisto, tú eres el primero en saberlo. No esperamos a que nos llames.</strong></p>
+        </article>
+
+        <article class="pain-card" data-r data-d="3">
+          <div class="pain-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="pain-problem">Incertidumbre total sobre dónde está tu carga</h3>
+          <p class="pain-answer">Sin información, sin seguimiento, sin control. <strong>Coordinación proactiva en cada ruta. No reactiva.</strong></p>
+        </article>
+      </div>
+
+      <div class="pain-footer" data-r="fade">
+        <p class="pain-quote">Por eso, después de 40 años, nuestros clientes no nos llaman para saber cómo va su carga.<br>Nos llaman para <em>pedir más.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       SERVICES
+  ══════════════════════════════════════════════════════ -->
+  <section class="s-services section-pad" id="servicios" aria-labelledby="services-heading">
+    <div class="wrap">
+      <div class="s-head">
+        <p class="eyebrow" data-r="fade">Nuestros servicios</p>
+        <h2 class="h-lg" id="services-heading" data-r data-d="1">Equipo especializado<br>para cada tipo de carga</h2>
+        <p class="lead" data-r data-d="2">No movemos de todo. Nos especializamos en los dos tipos de carga donde más experiencia y equipo propio tenemos. Esa diferencia la sientes desde el primer viaje.</p>
+      </div>
+
+      <div class="srv-grid">
+        <!-- Service 1: Chemical -->
+        <article class="srv-card" data-r data-d="1">
+          <div class="srv-banner chem" aria-hidden="true">
+            <svg class="srv-banner-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 3H7a2 2 0 00-2 2v11a4 4 0 004 4h6a4 4 0 004-4V5a2 2 0 00-2-2h-2M9 3a1 1 0 011-1h4a1 1 0 011 1v0a1 1 0 01-1 1h-4a1 1 0 01-1-1v0zM9 12h6M9 16h4"/>
+            </svg>
+            <div class="srv-banner-word">QUÍM.</div>
+          </div>
+          <div class="srv-body">
+            <div class="srv-tag">Servicio especializado</div>
+            <h3 class="srv-title">Tanques de Acero Inoxidable</h3>
+            <p class="srv-desc">Carga química con los más altos estándares de seguridad y manejo especializado. Nuestros tanques están diseñados para transportar productos que requieren control de contaminación y protocolos específicos de carga/descarga.</p>
+            <ul class="srv-features" aria-label="Características del servicio">
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Tanques de acero inoxidable certificados
+              </li>
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Operadores capacitados en manejo de químicos
+              </li>
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Protocolos de seguridad en cada ruta
+              </li>
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Documentación completa de trazabilidad
+              </li>
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Cobertura en toda la República Mexicana
+              </li>
+            </ul>
+            <div class="srv-industries">
+              <div class="ind-lbl">Industrias que atendemos</div>
+              <div class="ind-tags">
+                <span class="ind-tag">Química</span>
+                <span class="ind-tag">Alimentaria</span>
+                <span class="ind-tag">Farmacéutica</span>
+                <span class="ind-tag">Petroquímica</span>
+                <span class="ind-tag">Cosmética</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Service 2: Dry Box -->
+        <article class="srv-card" data-r data-d="2">
+          <div class="srv-banner dry" aria-hidden="true">
+            <svg class="srv-banner-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+            <div class="srv-banner-word">CAJA</div>
+          </div>
+          <div class="srv-body">
+            <div class="srv-tag">Carga general</div>
+            <h3 class="srv-title">Caja Seca</h3>
+            <p class="srv-desc">Para mercancías que necesitan protección climática durante todo el trayecto. Unidades modernas con control de temperatura, ideales para manufactura, retail y distribución a nivel nacional.</p>
+            <ul class="srv-features" aria-label="Características del servicio">
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Unidades selladas con protección climática
+              </li>
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Coordinación de carga y descarga incluida
+              </li>
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Seguimiento proactivo en ruta
+              </li>
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Flexibilidad de horarios y rutas
+              </li>
+              <li class="srv-feat">
+                <span class="feat-check" aria-hidden="true">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                Carga parcial y carga completa disponible
+              </li>
+            </ul>
+            <div class="srv-industries">
+              <div class="ind-lbl">Industrias que atendemos</div>
+              <div class="ind-tags">
+                <span class="ind-tag">Manufactura</span>
+                <span class="ind-tag">Retail</span>
+                <span class="ind-tag">Distribución</span>
+                <span class="ind-tag">Exportación</span>
+                <span class="ind-tag">Automotriz</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       STATS
+  ══════════════════════════════════════════════════════ -->
+  <section class="s-stats section-pad" aria-label="Cifras de la empresa">
+    <div class="wrap">
+      <div class="stats-grid" role="list">
+        <div class="bstat" data-r="fade" data-d="1" role="listitem">
+          <div class="bstat-num"><span class="stat-counter" data-target="40">0</span><span class="acc">+</span></div>
+          <div class="bstat-lbl">Años de operación ininterrumpida</div>
+          <div class="bstat-sub">Desde 1985 en México</div>
+        </div>
+        <div class="bstat" data-r="fade" data-d="2" role="listitem">
+          <div class="bstat-num"><span class="acc">32</span></div>
+          <div class="bstat-lbl">Estados con presencia activa</div>
+          <div class="bstat-sub">Cobertura nacional completa</div>
+        </div>
+        <div class="bstat" data-r="fade" data-d="3" role="listitem">
+          <div class="bstat-num">&lt;<span class="acc">2h</span></div>
+          <div class="bstat-lbl">Para recibir tu cotización</div>
+          <div class="bstat-sub">Respuesta ágil, sin esperas</div>
+        </div>
+        <div class="bstat" data-r="fade" data-d="4" role="listitem">
+          <div class="bstat-num"><span class="acc">2</span></div>
+          <div class="bstat-lbl">Servicios especializados</div>
+          <div class="bstat-sub">Tanque inox + Caja seca</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       PROCESS
+  ══════════════════════════════════════════════════════ -->
+  <section class="s-process section-pad" id="proceso" aria-labelledby="process-heading">
+    <div class="wrap">
+      <div class="s-head">
+        <p class="eyebrow" data-r="fade">Proceso simple</p>
+        <h2 class="h-lg" id="process-heading" data-r data-d="1">Tres pasos para dejar<br>de preocuparte</h2>
+        <p class="lead" data-r data-d="2">No pedimos papeleo interminable ni reuniones previas. Solo cuéntanos qué necesitas mover y en cuánto tiempo.</p>
+      </div>
+
+      <div class="proc-steps">
+        <div class="proc-step" data-r data-d="1">
+          <div class="step-num n1" aria-hidden="true">01</div>
+          <h3 class="step-title">Cuéntanos tu necesidad</h3>
+          <p class="step-desc">Compártenos los detalles de tu carga: tipo de producto, volumen, origen, destino y fecha requerida. Sin formularios complejos, basta un mensaje.</p>
+        </div>
+        <div class="proc-step" data-r data-d="2">
+          <div class="step-num n2" aria-hidden="true">02</div>
+          <h3 class="step-title">Recibe tu cotización</h3>
+          <p class="step-desc">En menos de 2 horas tienes una propuesta clara con precio, tiempos de tránsito y el tipo de unidad asignada. Sin letra chica, sin sorpresas posteriores.</p>
+        </div>
+        <div class="proc-step" data-r data-d="3">
+          <div class="step-num n3" aria-hidden="true">03</div>
+          <h3 class="step-title">Nosotros nos encargamos</h3>
+          <p class="step-desc">Coordinamos recolección, tránsito y entrega. Tú recibes confirmación en cada etapa clave. Si hay algo que reportar, lo sabes antes de que lo preguntes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       DIFFERENTIATORS
+  ══════════════════════════════════════════════════════ -->
+  <section class="s-diff section-pad" id="nosotros" aria-labelledby="diff-heading">
+    <div class="wrap">
+      <div class="diff-head">
+        <p class="eyebrow" data-r="fade">Por qué TG</p>
+        <h2 class="h-lg" id="diff-heading" data-r data-d="1">Lo que nos hace<br>diferentes</h2>
+        <p class="lead" data-r data-d="2">Cualquier transportista puede decirte que es confiable. Estos son los hechos concretos que respaldan la diferencia.</p>
+      </div>
+
+      <div class="diff-grid">
+        <article class="diff-card" data-r data-d="1">
+          <div class="diff-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H7a2 2 0 00-2 2v11a4 4 0 004 4h6a4 4 0 004-4V5a2 2 0 00-2-2h-2M9 3a1 1 0 011-1h4a1 1 0 011 1v0a1 1 0 01-1 1h-4a1 1 0 01-1-1v0z"/></svg>
+          </div>
+          <h3 class="diff-title">Especialistas en carga química, no generalistas</h3>
+          <p class="diff-desc">No tenemos unidades para "todo tipo de carga". Nos especializamos en tanques de acero inoxidable para químicos y en caja seca para carga general. <strong>Cuando contratas a un especialista, la ejecución es diferente.</strong></p>
+        </article>
+
+        <article class="diff-card" data-r data-d="2">
+          <div class="diff-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <h3 class="diff-title">Comunicación que funciona cuando importa</h3>
+          <p class="diff-desc">Si tu carga tiene un imprevisto en ruta, no esperes a enterarte por accidente. <strong>Tú eres el primero en saberlo.</strong> Comunicación proactiva, no reactiva. Esa es la diferencia entre un proveedor y un aliado.</p>
+        </article>
+
+        <article class="diff-card" data-r data-d="3">
+          <div class="diff-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="diff-title">40 años sin desaparecer del mercado</h3>
+          <p class="diff-desc">Cuatro décadas de operación continua significa que hemos atravesado crisis económicas, cambios regulatorios y disrupciones de todo tipo. <strong>Seguimos aquí porque resolvemos, no porque prometemos.</strong></p>
+        </article>
+
+        <article class="diff-card" data-r data-d="4">
+          <div class="diff-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3 class="diff-title">Equipo propio, no subcontratado</h3>
+          <p class="diff-desc">Cada unidad de nuestra flota es propia. Cada operador está capacitado directamente por nosotros. <strong>No intermediamos lo más crítico de tu operación.</strong> Eso nos da control sobre calidad, tiempos y protocolos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       COVERAGE
+  ══════════════════════════════════════════════════════ -->
+  <section class="s-coverage section-pad" id="cobertura" aria-labelledby="cov-heading">
+    <div class="wrap">
+      <div class="cov-inner">
+        <div class="cov-text">
+          <p class="eyebrow" data-r="fade">Cobertura nacional</p>
+          <h2 class="h-lg" id="cov-heading" data-r data-d="1">Llegamos donde<br>tu operación lo necesita</h2>
+          <p class="lead" data-r data-d="2">Toda la República Mexicana. Desde los corredores industriales del norte hasta los puertos del sur y sureste. Sin excepción.</p>
+
+          <div class="cov-points" data-r data-d="3">
+            <div class="cov-pt">
+              <div class="cov-dot" aria-hidden="true"></div>
+              <div class="cov-pt-body">
+                <span class="cov-pt-title">Norte Industrial</span>
+                <span class="cov-pt-text">Monterrey, Saltillo, Chihuahua, Ciudad Juárez, Tijuana — corredores maquiladores y manufactura pesada.</span>
+              </div>
+            </div>
+            <div class="cov-pt">
+              <div class="cov-dot" aria-hidden="true"></div>
+              <div class="cov-pt-body">
+                <span class="cov-pt-title">Bajío y Centro</span>
+                <span class="cov-pt-text">CDMX, Querétaro, Guanajuato, Puebla, Toluca — el corazón industrial del país.</span>
+              </div>
+            </div>
+            <div class="cov-pt">
+              <div class="cov-dot" aria-hidden="true"></div>
+              <div class="cov-pt-body">
+                <span class="cov-pt-title">Sur y Puertos</span>
+                <span class="cov-pt-text">Veracruz, Tampico, Lázaro Cárdenas, Manzanillo, Altamira — logística portuaria y distribución regional.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-box" data-r="right" data-d="2">
+          <div class="map-svg-wrap">
+            <div class="map-glow" aria-hidden="true"></div>
+            <!-- Mexico SVG Map - simplified outline -->
+            <svg viewBox="0 0 520 380" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mapa de México con cobertura nacional">
+              <defs>
+                <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#1D4ED8;stop-opacity:0.7"/>
+                  <stop offset="100%" style="stop-color:#0D2545;stop-opacity:0.9"/>
+                </linearGradient>
+                <filter id="glow">
+                  <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                  <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+              </defs>
+              <!-- Mexico mainland simplified path -->
+              <path d="M 28 68 L 55 55 L 80 42 L 115 32 L 148 28 L 178 30 L 205 38 L 228 50 L 248 58 L 265 62 L 285 58 L 300 50 L 315 42 L 330 38 L 350 36 L 370 32 L 390 28 L 408 24 L 422 22 L 438 26 L 448 34 L 452 46 L 448 58 L 442 68 L 435 78 L 425 88 L 415 98 L 408 110 L 405 124 L 402 138 L 398 150 L 392 162 L 385 172 L 375 180 L 365 188 L 355 194 L 342 198 L 330 200 L 318 202 L 305 205 L 292 210 L 280 218 L 268 226 L 255 235 L 244 245 L 235 255 L 228 268 L 222 280 L 216 292 L 208 304 L 198 314 L 188 322 L 178 330 L 168 338 L 158 344 L 148 348 L 138 350 L 128 348 L 120 342 L 114 334 L 108 324 L 104 314 L 100 302 L 96 290 L 90 278 L 82 268 L 72 260 L 62 255 L 52 252 L 42 252 L 34 255 L 26 260 L 20 268 L 16 278 L 14 288 L 14 300 L 12 310 L 8 320 L 6 330 L 8 340 L 14 348 L 22 354 L 32 358 L 28 68 Z" fill="url(#mapGrad)" stroke="rgba(59,130,246,0.5)" stroke-width="1.5" filter="url(#glow)"/>
+              <!-- Baja California peninsula -->
+              <path d="M 28 68 L 22 80 L 16 96 L 12 112 L 10 130 L 10 148 L 12 164 L 16 178 L 20 190 L 22 202 L 20 212 L 16 222 L 10 228 L 8 238 L 8 246 L 12 252 L 18 254 L 26 252 L 28 244 L 28 234 L 26 224 L 24 214 L 22 202 L 24 192 L 28 182 L 30 170 L 30 158 L 28 146 L 26 134 L 26 120 L 28 108 L 30 96 L 28 82 L 28 68 Z" fill="rgba(29,78,216,0.5)" stroke="rgba(59,130,246,0.4)" stroke-width="1.5"/>
+              <!-- Yucatan peninsula -->
+              <path d="M 308 205 L 318 202 L 328 200 L 340 200 L 352 204 L 362 210 L 370 218 L 376 228 L 380 240 L 378 252 L 372 262 L 362 268 L 350 270 L 338 268 L 326 262 L 316 254 L 308 244 L 304 234 L 304 222 L 308 212 L 308 205 Z" fill="rgba(29,78,216,0.6)" stroke="rgba(59,130,246,0.45)" stroke-width="1.5"/>
+
+              <!-- Dots for key cities -->
+              <circle cx="385" cy="88" r="5" fill="#F59E0B" filter="url(#glow)" opacity="0.9"/><!-- Monterrey -->
+              <circle cx="340" cy="70" r="4" fill="#F59E0B" filter="url(#glow)" opacity="0.8"/><!-- Chihuahua -->
+              <circle cx="250" cy="148" r="6" fill="#F59E0B" filter="url(#glow)" opacity="1"/><!-- CDMX -->
+              <circle cx="285" cy="132" r="4" fill="#F59E0B" opacity="0.8"/><!-- Querétaro -->
+              <circle cx="310" cy="170" r="4" fill="#F59E0B" opacity="0.8"/><!-- Veracruz -->
+              <circle cx="195" cy="185" r="4" fill="#F59E0B" opacity="0.8"/><!-- Manzanillo -->
+              <circle cx="140" cy="88" r="4" fill="#F59E0B" opacity="0.8"/><!-- Mexicali/Tijuana -->
+              <circle cx="340" cy="240" r="4" fill="#F59E0B" opacity="0.8"/><!-- Mérida -->
+
+              <!-- Lines connecting dots (routes) -->
+              <line x1="140" y1="88" x2="385" y2="88" stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="385" y1="88" x2="250" y2="148" stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="250" y1="148" x2="310" y2="170" stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="250" y1="148" x2="340" y2="240" stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="250" y1="148" x2="195" y2="185" stroke="rgba(245,158,11,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+
+              <!-- City labels -->
+              <text x="378" y="78" fill="rgba(255,255,255,0.6)" font-size="9" font-family="Inter,sans-serif">Monterrey</text>
+              <text x="243" y="162" fill="rgba(255,255,255,0.7)" font-size="10" font-family="Inter,sans-serif" font-weight="600">CDMX</text>
+              <text x="315" y="165" fill="rgba(255,255,255,0.55)" font-size="8" font-family="Inter,sans-serif">Veracruz</text>
+              <text x="344" y="255" fill="rgba(255,255,255,0.55)" font-size="8" font-family="Inter,sans-serif">Mérida</text>
+              <text x="94" y="82" fill="rgba(255,255,255,0.55)" font-size="8" font-family="Inter,sans-serif">Tijuana</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════
+       FINAL CTA
+  ══════════════════════════════════════════════════════ -->
+  <section class="s-cta section-pad" id="contacto" aria-labelledby="cta-heading">
+    <div class="cta-lines" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+    <div class="wrap">
+      <div class="cta-inner">
+        <p class="eyebrow cta-eyebrow" data-r="fade">Empieza hoy</p>
+        <h2 class="cta-title" id="cta-heading" data-r data-d="1">
+          ¿Tienes una carga<br>que <em>coordinar?</em>
+        </h2>
+        <p class="cta-sub" data-r data-d="2">
+          Sin trámites complicados. Sin esperas largas. Cuéntanos lo que necesitas mover y en menos de 2 horas tienes tu cotización en mano.
+        </p>
+        <div class="cta-btns" data-r data-d="3">
+          <a href="https://wa.me/522411105710?text=Hola%2C%20quisiera%20solicitar%20una%20cotizaci%C3%B3n%20de%20transporte" target="_blank" rel="noopener" class="btn btn-wa btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Escribir por WhatsApp
+          </a>
+          <a href="mailto:contacto@tgtransportes.mx" class="btn btn-dark btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Enviar detalles por email
+          </a>
+        </div>
+        <p class="cta-note" data-r="fade" data-d="4">
+          <span>+52 241 110 5710</span> · Respuesta en menos de 2 horas en horario laboral
+        </p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="wrap">
+      <div class="footer-top">
+        <div class="ft-brand">
+          <div class="nav-logo">
+            <div class="logo-badge">TG</div>
+            <div class="logo-copy">
+              <span class="logo-name">Transportes González</span>
+              <span class="logo-sub">Logística Especializada</span>
+            </div>
+          </div>
+          <p class="ft-tagline">40 años transportando lo más importante: tu carga y tu confianza.</p>
+          <div class="ft-contact">
+            <div class="ft-ci">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              <a href="https://wa.me/522411105710" target="_blank" rel="noopener">+52 241 110 5710</a>
+            </div>
+            <div class="ft-ci">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              <span>Respuesta en &lt; 2 horas</span>
+            </div>
+            <div class="ft-ci">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>República Mexicana</span>
+            </div>
+          </div>
+          <div class="ft-social" role="list" aria-label="Redes sociales">
+            <a href="#" class="soc-btn" target="_blank" rel="noopener" aria-label="Facebook de TG Transportes" role="listitem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="soc-btn" target="_blank" rel="noopener" aria-label="LinkedIn de TG Transportes" role="listitem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="ft-col-title">Servicios</div>
+          <nav class="ft-links" aria-label="Servicios">
+            <a href="#servicios">Tanques Acero Inoxidable</a>
+            <a href="#servicios">Caja Seca</a>
+            <a href="#cobertura">Cobertura Nacional</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="ft-col-title">Empresa</div>
+          <nav class="ft-links" aria-label="Empresa">
+            <a href="#nosotros">Quiénes somos</a>
+            <a href="#proceso">Cómo trabajamos</a>
+            <a href="#cobertura">Cobertura</a>
+          </nav>
+        </div>
+
+        <div>
+          <div class="ft-col-title">Contacto</div>
+          <nav class="ft-links" aria-label="Contacto">
+            <a href="https://wa.me/522411105710" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="#contacto">Solicitar cotización</a>
+            <a href="https://www.tgtransportes.mx" target="_blank" rel="noopener">tgtransportes.mx</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-btm">
+        <p class="ftcopy">© 2025 Transportes González. Todos los derechos reservados.</p>
+        <div class="ft-legal">
+          <a href="#">Aviso de privacidad</a>
+          <a href="#">Términos de servicio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── NAVBAR SCROLL ─────────────────────────────────── */
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── MOBILE MENU ───────────────────────────────────── */
+    const burger = document.getElementById('burger');
+    const mNav = document.getElementById('m-nav');
+    const burgerIcon = document.getElementById('burger-icon');
+    let menuOpen = false;
+
+    const openIcon = `<line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>`;
+    const closeIcon = `<line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>`;
+
+    burger.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mNav.classList.toggle('open', menuOpen);
+      burger.setAttribute('aria-expanded', menuOpen);
+      burgerIcon.innerHTML = menuOpen ? closeIcon : openIcon;
+      document.body.style.overflow = menuOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.m-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mNav.classList.remove('open');
+        burger.setAttribute('aria-expanded', 'false');
+        burgerIcon.innerHTML = openIcon;
+        document.body.style.overflow = '';
+      });
+    });
+
+    /* ── SCROLL REVEAL ─────────────────────────────────── */
+    const revealEls = document.querySelectorAll('[data-r]');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('vis');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    /* ── COUNTER ANIMATION ─────────────────────────────── */
+    const counters = document.querySelectorAll('.stat-counter');
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.target, 10);
+        const duration = 1800;
+        const start = performance.now();
+        const tick = (now) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target);
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        counterObs.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => counterObs.observe(c));
+
+    /* ── SMOOTH SCROLL ─────────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (!el) return;
+        e.preventDefault();
+        const top = el.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
