@@ -253,12 +253,32 @@
     .pain-answer { font-size: .9375rem; color: rgba(255,255,255,.48); line-height: 1.65; }
     .pain-answer strong { color: rgba(255,255,255,.78); font-weight: 600; }
 
-    .pain-footer { text-align: center; }
+    .pain-photo-banner {
+      position: relative; border-radius: var(--r-lg); overflow: hidden;
+      height: clamp(220px, 30vw, 320px);
+    }
+    .pain-photo-banner img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 18%;
+      display: block;
+    }
+    .pain-photo-banner::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(
+        100deg,
+        rgba(2,11,23,.97) 0%,
+        rgba(2,11,23,.85) 45%,
+        rgba(2,11,23,.45) 100%
+      );
+    }
+    .pain-photo-text {
+      position: absolute; inset: 0; z-index: 1;
+      display: flex; align-items: center; padding: clamp(1.5rem, 4vw, 3rem);
+      max-width: 680px;
+    }
     .pain-quote {
-      display: inline-block; font-family: var(--f-head); font-size: clamp(1.1rem,2.5vw,1.6rem);
-      font-weight: 700; color: var(--c-white); padding: 1.25rem 2.5rem;
-      background: linear-gradient(135deg, var(--c-bg4), var(--c-bg3));
-      border: 1px solid rgba(29,78,216,.25); border-radius: var(--r-xl);
+      font-family: var(--f-head); font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+      font-weight: 700; color: var(--c-white); line-height: 1.3;
+      letter-spacing: -.02em;
     }
     .pain-quote em { font-style: normal; color: var(--c-red); }
 
@@ -283,7 +303,7 @@
       display: flex; align-items: center; justify-content: center;
     }
     .srv-banner.chem {
-      background: url('img/tanker-truck.jpg') center center / cover no-repeat;
+      background: url('img/process-tanker.jpg') center 55% / cover no-repeat;
     }
     .srv-banner.chem::after {
       content: ''; position: absolute; inset: 0;
@@ -414,8 +434,17 @@
     /* ══════════════════════════════════════════════════════
        FINAL CTA
     ══════════════════════════════════════════════════════ */
-    .s-cta { background: var(--c-bg2); position: relative; overflow: hidden; }
-    .s-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center, rgba(29,78,216,.1) 0%, transparent 65%); pointer-events:none; }
+    .s-cta {
+      background: url('img/cta-night.jpg') center 40% / cover no-repeat;
+      position: relative; overflow: hidden;
+    }
+    .s-cta::before {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background: linear-gradient(to bottom,
+        rgba(2,11,23,.93) 0%,
+        rgba(2,11,23,.88) 50%,
+        rgba(2,11,23,.94) 100%);
+    }
     .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 720px; margin: 0 auto; }
     .cta-eyebrow { margin-bottom: 1.5rem; }
     .cta-title { font-family: var(--f-head); font-size: clamp(2.25rem,6vw,4rem); font-weight: 800; color: var(--c-white); letter-spacing: -.035em; line-height: 1.05; margin-bottom: 1.25rem; }
@@ -664,8 +693,11 @@
         </article>
       </div>
 
-      <div class="pain-footer" data-r="fade">
-        <p class="pain-quote">Por eso, después de 40 años, nuestros clientes no nos llaman para saber cómo va su carga.<br>Nos llaman para <em>pedir más.</em></p>
+      <div class="pain-photo-banner" data-r="fade">
+        <img src="img/pain-operator.jpg" alt="Gerente de logística coordinando operaciones" loading="lazy">
+        <div class="pain-photo-text">
+          <p class="pain-quote">Por eso, después de 40 años, nuestros clientes no nos llaman para saber cómo va su carga.<br>Nos llaman para <em>pedir más.</em></p>
+        </div>
       </div>
     </div>
   </section>
