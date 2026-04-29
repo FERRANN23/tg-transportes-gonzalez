@@ -346,11 +346,18 @@
     /* ══════════════════════════════════════════════════════
        STATS
     ══════════════════════════════════════════════════════ */
-    .s-stats { background: var(--c-bg); position: relative; overflow: hidden; }
+    .s-stats {
+      background: url('img/process-bg.jpg') center 25% / cover no-repeat;
+      position: relative; overflow: hidden;
+    }
     .s-stats::before {
       content:''; position:absolute; inset:0;
-      background-image: linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px), linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);
-      background-size: 80px 80px;
+      background: linear-gradient(
+        to bottom,
+        rgba(2,11,23,.94) 0%,
+        rgba(2,11,23,.89) 50%,
+        rgba(2,11,23,.94) 100%
+      );
     }
     .stats-grid { position:relative; z-index:1; display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
     .bstat { padding: 3rem 1.5rem; text-align: center; border-right: 1px solid var(--c-border-dk); }
@@ -385,8 +392,19 @@
     /* ══════════════════════════════════════════════════════
        DIFFERENTIATORS
     ══════════════════════════════════════════════════════ */
-    .s-diff { background: var(--c-bg2); position: relative; overflow: hidden; }
-    .s-diff::after { content:''; position:absolute; top:0; right:0; width:50%; height:100%; background:radial-gradient(ellipse at top right, rgba(29,78,216,.07) 0%, transparent 65%); pointer-events:none; }
+    .s-diff {
+      background: url('img/diff-bg.jpg') center 30% / cover no-repeat;
+      position: relative; overflow: hidden;
+    }
+    .s-diff::after {
+      content:''; position:absolute; inset:0; pointer-events:none;
+      background: linear-gradient(
+        to bottom,
+        rgba(2,11,23,.93) 0%,
+        rgba(2,11,23,.87) 50%,
+        rgba(2,11,23,.93) 100%
+      );
+    }
 
     .diff-head { max-width: 620px; margin-bottom: 4rem; }
     .diff-head .h-lg { color: var(--c-white); margin-bottom: 1rem; }
